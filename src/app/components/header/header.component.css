@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgb(1, 0, 14) 0%, rgb(4, 14, 33) 0%, rgb(1, 86, 103) 100%);
+  color: aliceblue;
+}
+
+h1 {
+  margin-top: 1rem;
+  border: 1px solid rgb(161, 159, 159);
+  padding: 1rem 10%;
+  border-radius: 2rem;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form mat-elevation-z8">
+     <h1>Challenge - User's cars</h1>
+     <img src="../../../assets/img/pngegg.png" alt="Challenge - User's cars">
+
+     <mat-form-field class="full-width" appearance="outline">
+      <mat-label>login</mat-label>
+      <input
+      [formControl]="login"
+      [(ngModel)]="credential.login"
+      name="login"
+      matInput
+      placeholder="Ex. fulano">
+      <mat-icon matSuffix>login</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+      [formControl]="password"
+      [(ngModel)]="credential.password"
+      name="password"
+      type="password"
+      matInput
+      placeholder="Ex. 123">
+      <mat-icon matSuffix>password</mat-icon>
+   </mat-form-field>
+
+     <button (click)="executeLogin()" [disabled]="!isValid()" class="full-width mat-elevation-z4" mat-stroked-button color="primary">Login</button>
+     <button  routerLink="/register" class="full-width mat-elevation-z4" mat-stroked-button color="primary">Register</button>
+  </form>
+
+</div>
