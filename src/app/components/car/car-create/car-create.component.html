@@ -1,0 +1,52 @@
+<div class="container mat-elevation-z8">
+  <form class="form">
+    <h1 class="fullWidth">Register new car</h1>
+    <mat-form-field class="fullWidth" >
+      <mat-label>License Plate</mat-label>
+      <input
+      [(ngModel)]="car.licensePlate"
+      name="licensePlate"
+      [formControl]="licensePlate"
+      required
+      matInput
+      placeholder="Ex.. XXXXXX"
+      maxlength="10">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Model</mat-label>
+      <input
+      [(ngModel)]="car.model"
+      name="model"
+      [formControl]="model"
+      required
+      matInput
+      placeholder="Ex.. fusca">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Color</mat-label>
+      <input
+      [(ngModel)]="car.color"
+      name="color"
+      [formControl]="color"
+      required
+      matInput
+      placeholder="Ex.. red">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Year</mat-label>
+      <input
+      [(ngModel)]="car.year"
+      name="year"
+      [formControl]="year"
+      required
+      matInput
+      placeholder="Ex.. 1901">
+    </mat-form-field>
+
+    <button (click)="create()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Register</button>
+    <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancel</button>
+  </form>
+</div>

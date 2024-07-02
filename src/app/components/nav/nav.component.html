@@ -1,22 +1,22 @@
 <mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
     <img src="../../../assets/img/pngegg.png" alt="">
     <mat-nav-list class="nav-list">
-      <a mat-list-item routerLink="home">
+      <a mat-list-item routerLink="me">
         <i class="material-icons">home</i>
-        Home
-     </a>
-     <a mat-list-item routerLink="users">
+        <a>Me</a>
+      </a>
+      <a mat-list-item routerLink="users">
         <i class="material-icons">person</i>
-        Users
+        <a>Users</a>
       </a>
       <a mat-list-item routerLink="cars">
-          <i class="material-icons">directions_car_filled</i>
-          Cars
+        <i class="material-icons">directions_car_filled</i>
+        <a>Cars</a>
       </a>
       <a mat-list-item (click)="logout()">
         <i class="material-icons">logout</i>
-        Logout
+        <a>Logout</a>
       </a>
     </mat-nav-list>
   </mat-drawer>

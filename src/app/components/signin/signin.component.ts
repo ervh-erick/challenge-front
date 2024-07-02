@@ -16,8 +16,10 @@ export class SigninComponent implements OnInit{
    login: '',
    password: ''
   }
-  login = new FormControl(null, [Validators.required, Validators.minLength(3)]);
-  password = new FormControl(null, [Validators.required, Validators.minLength(3)]);
+
+
+  login = new FormControl(null, Validators.minLength(3));
+  password = new FormControl(null, Validators.minLength(3));
 
   constructor(
     private toastr: ToastrService,
@@ -31,8 +33,8 @@ export class SigninComponent implements OnInit{
   executeLogin(){
     this.authService.authenticate(this.credential).subscribe(response=> {
       this.authService.success(response);
-      this.router.navigate([''])
-    }, () => {
+      this.router.navigate(['me'])
+    }, (error ) => {
       this.toastr.error("Invalid login or password", "Login fail")
     });
     }

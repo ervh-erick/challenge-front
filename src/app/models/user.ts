@@ -1,31 +1,14 @@
-export class User{
-  id: string;
+export interface User{
+  id?: any;
   firstName : string;
   lastName : string;
   email : string;
-  birthday : Date;
+  birthday : any;
   login : string;
   password : string;
   phone : string;
-  createdAt : Date;
-  lastLogin : Date;
+  createdAt : any;
+  lastLogin : any;
   cars : any;
-  token: string;
-
-  constructor(
-    id: string,
-    firstName : string,
-    lastName : string,
-    email : string,
-    birthday : Date,
-    login : string,
-    password : string,
-    phone : string,
-    createdAt : Date,
-    lastLogin : Date,
-    cars : any,
-    token: string
-  )
-{}
-
+  token?: string;
 }

@@ -3,5 +3,5 @@ export interface Car{
   licensePlate: string,
   model: string,
   color: string,
-  year: number
+  year: any
 }

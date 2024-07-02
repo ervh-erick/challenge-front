@@ -1,0 +1,24 @@
+.container {
+  width: 35rem;
+  margin: auto;
+  border-radius: .6rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.fullWidth {
+  width: 90%;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+button {
+  width: 10%;
+  margin-left: 2rem;
+}
+
+

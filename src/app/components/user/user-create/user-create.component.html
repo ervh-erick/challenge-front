@@ -1,0 +1,85 @@
+<div class="container mat-elevation-z8">
+  <form class="form">
+    <h1 class="fullWidth">Create new user</h1>
+    <mat-form-field class="fullWidth" >
+      <mat-label>First name</mat-label>
+      <input
+      [(ngModel)]="user.firstName"
+      name="licensePlate"
+      [formControl]="firstName"
+      required
+      matInput
+      placeholder="Ex.. Fulano">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Last name</mat-label>
+      <input
+      [(ngModel)]="user.lastName"
+      name="lastName"
+      [formControl]="lastName"
+      required
+      matInput
+      placeholder="Ex.. da Silva">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Login(will be used to signin)</mat-label>
+      <input
+      [(ngModel)]="user.login"
+      name="login"
+      [formControl]="login"
+      required
+      matInput
+      placeholder="Ex.. sicrano">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Email</mat-label>
+      <input
+      [(ngModel)]="user.email"
+      name="email"
+      [formControl]="email"
+      required
+      matInput
+      placeholder="Ex.. email@email.com">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Password</mat-label>
+      <input
+      [(ngModel)]="user.password"
+      name="password"
+      [formControl]="password"
+      required
+      type="password"
+      matInput
+      placeholder="Ex.. 123">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Birthday</mat-label>
+      <input
+      [(ngModel)]="user.birthday"
+      name="birthday"
+      [formControl]="birthday"
+      required
+      type="date"
+      matInput
+      placeholder="Ex.. 01/01/1900">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" >
+      <mat-label>Phone</mat-label>
+      <input
+      [(ngModel)]="user.phone"
+      name="phone"
+      [formControl]="phone"
+      required
+      matInput
+      placeholder="Ex.. 99999999999">
+    </mat-form-field>
+    <button (click)="create()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Register</button>
+    <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancel</button>
+  </form>
+</div>

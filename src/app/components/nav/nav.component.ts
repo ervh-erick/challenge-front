@@ -17,7 +17,7 @@ export class NavComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.router.navigate(['cars']);
+    this.router.navigate(['me']);
   }
 
   logout() {

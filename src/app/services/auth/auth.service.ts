@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ToastrService } from 'ngx-toastr';
@@ -30,6 +30,7 @@ export class AuthService {
   success(response: HttpResponse<string> ) : void{
     this.user = JSON.parse(response.body);
     this.setAuthToken(this.user.token);
+    this.setLoggedUser(this.user.login);
   }
 
   setAuthToken(token: string | null): void {
@@ -37,6 +38,21 @@ export class AuthService {
       localStorage.setItem("token", token);
     } else {
       localStorage.removeItem("token");
+    }
+  }
+
+  setLoggedUser(login: string){
+    localStorage.setItem('loggedUser', login);
+  }
+
+  getLoggedUser(){
+    localStorage.getItem('loggedUser');
+  }
+
+  getHeaderAuth() {
+    return {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${this.getAuthToken()}`)
     }
   }
 

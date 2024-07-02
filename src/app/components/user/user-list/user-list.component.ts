@@ -1,26 +1,28 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Car } from '../../../models/car';
-import { CarService } from '../../../services/car/car.service';
+import { User } from '../../../models/user';
 import { ToasterService } from '../../../services/toaster/toaster.service';
+import { UserService } from '../../../services/user/user.service';
+
 
 @Component({
-  selector: 'app-car-list',
-  templateUrl: './car-list.component.html',
-  styleUrl: './car-list.component.css'
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrl: './user-list.component.css'
 })
-export class CarListComponent implements OnInit{
 
-  ELEMENT_DATA: Car[] = [];
+export class UserListComponent implements OnInit{
 
-  displayedColumns: string[] = ['licensePlate', 'model', 'color', 'year', 'acoes'];
-  dataSource = new MatTableDataSource<Car>(this.ELEMENT_DATA);
+  ELEMENT_DATA: User[] = [];
+
+  displayedColumns: string[] = ['firstName', 'lastName', 'login', 'email',  'birthday', 'phone', 'acoes'];
+  dataSource = new MatTableDataSource<User>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
-    private carService: CarService,
+    private userService: UserService,
     private toastr: ToasterService
   ){}
 
@@ -29,9 +31,9 @@ export class CarListComponent implements OnInit{
   }
 
   findAll(){
-    this.carService.findAll().subscribe(response => {
+    this.userService.findAll().subscribe(response => {
       this.ELEMENT_DATA = response
-      this.dataSource = new  MatTableDataSource<Car>(response);
+      this.dataSource = new  MatTableDataSource<User>(response);
       this.dataSource.paginator = this.paginator;
     },  ex => {
       if(ex.error.errors) {
