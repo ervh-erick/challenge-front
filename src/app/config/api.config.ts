@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-   baseUrl : 'http://localhost:8080/api',
-   baseUrlMe : 'http://localhost:8080'
+   baseUrl : 'https://challenge-api-mq4j.onrender.com/api',
+   baseUrlMe : 'https://challenge-api-mq4j.onrender.com'
 
 }
