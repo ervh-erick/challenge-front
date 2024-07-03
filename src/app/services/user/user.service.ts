@@ -31,7 +31,7 @@ export class UserService {
 
   findByMe(): Observable<User> {
     console.log(this.authService.getAuthToken())
-    return this.http.get<User>(`${API_CONFIG.baseUrl}/me`, this.authService.getHeaderAuth());
+    return this.http.get<User>(`${API_CONFIG.baseUrlMe}/me`, this.authService.getHeaderAuth());
   }
 
   update(user: User): Observable<User> {
