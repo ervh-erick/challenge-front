@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Car } from '../../../models/car';
 import { CarService } from '../../../services/car/car.service';
 import { ToasterService } from '../../../services/toaster/toaster.service';
+import { CONNREFUSED } from 'node:dns';
 
 @Component({
   selector: 'app-car-create',
@@ -53,6 +54,10 @@ export class CarCreateComponent implements OnInit {
   validaCampos(): boolean {
     return this.licensePlate.valid && this.year.valid
      && this.color.valid && this.model.valid
+  }
+
+  back() {
+    this.router.navigate(['cars'])
   }
 
 }
