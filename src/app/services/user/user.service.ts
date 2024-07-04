@@ -21,7 +21,6 @@ export class UserService {
   }
 
   findById(id: any): Observable<User> {
-    console.log(this.authService.getAuthToken())
     return this.http.get<User>(`${API_CONFIG.baseUrl}/users/${id}`, this.authService.getHeaderAuth());
   }
 
@@ -30,7 +29,6 @@ export class UserService {
   }
 
   findByMe(): Observable<User> {
-    console.log(this.authService.getAuthToken())
     return this.http.get<User>(`${API_CONFIG.baseUrlMe}/me`, this.authService.getHeaderAuth());
   }
 

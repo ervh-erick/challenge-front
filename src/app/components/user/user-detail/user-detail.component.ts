@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from '../../../models/car';
 import { User } from '../../../models/user';
-import { AuthService } from '../../../services/auth/auth.service';
+import { ToasterService } from '../../../services/toaster/toaster.service';
 import { UserService } from '../../../services/user/user.service';
 
 @Component({
@@ -33,6 +33,8 @@ export class UserDetailComponent {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
+    private toastr: ToasterService
+
   ){}
 
   ngOnInit(): void {
@@ -43,9 +45,16 @@ export class UserDetailComponent {
   findById(): void{
     this.userService.findById(this.user.id).subscribe(response => {
       this.user = response;
-      console.log(this.user.cars)
       this.dataSource = new  MatTableDataSource<Car>(this.user.cars);
-    });
+    }), ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastr.error(element.message);
+        });
+      } else {
+        this.toastr.error(ex.error.message);
+      }
+    };
   }
 }
 

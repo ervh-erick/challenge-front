@@ -19,6 +19,7 @@ export class CarService {
   }
 
   create(car: Car): Observable<Car> {
+    console.log(car)
     return this.http.post<Car>(`${API_CONFIG.baseUrl}/cars`, car, this.authService.getHeaderAuth());
   }
 
