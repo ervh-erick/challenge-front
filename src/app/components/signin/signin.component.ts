@@ -34,15 +34,18 @@ export class SigninComponent implements OnInit{
     this.authService.authenticate(this.credential).subscribe(response=> {
       this.authService.success(response);
       this.router.navigate(['me'])
-    }, (error ) => {
-      this.toastr.error("Invalid login or password", "Login fail")
-    });
-    }
+    }, ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastr.error(element.message);
+        });
+      } else {
+        this.toastr.error(ex.error.message);
+      }
+    })
+  }
 
   isValid(): boolean {
     return this.login.valid && this.password.valid
   }
-
-
-
 }

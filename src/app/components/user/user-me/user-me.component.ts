@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Car } from '../../../models/car';
 import { User } from '../../../models/user';
 import { AuthService } from '../../../services/auth/auth.service';
+import { ToasterService } from '../../../services/toaster/toaster.service';
 import { UserService } from '../../../services/user/user.service';
 
 @Component({
@@ -32,6 +33,7 @@ export class UserMeComponent implements OnInit{
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
+    private toastr: ToasterService,
     private authService: AuthService
   ){}
 
@@ -44,7 +46,15 @@ export class UserMeComponent implements OnInit{
       this.user = response;
       console.log(this.user.cars)
       this.dataSource = new  MatTableDataSource<Car>(this.user.cars);
-    });
+    }), ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastr.error(element.message);
+        });
+      } else {
+        this.toastr.error(ex.error.message);
+      }
+    };
   }
 }
 

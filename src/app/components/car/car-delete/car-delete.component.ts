@@ -32,7 +32,15 @@ export class CarDeleteComponent implements OnInit{
   findById(): void{
     this.carService.findById(this.car.id).subscribe(response => {
     this.car = response;
-    });
+    }), ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastr.error(element.message);
+        });
+      } else {
+        this.toastr.error(ex.error.message);
+      }
+    };;
   }
 
   delete() {

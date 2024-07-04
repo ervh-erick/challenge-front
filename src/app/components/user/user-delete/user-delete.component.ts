@@ -40,7 +40,15 @@ export class UserDeleteComponent {
   findById(): void{
     this.userService.findById(this.user.id).subscribe(response => {
       this.user = response;
-    });
+    }), ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastr.error(element.message);
+        });
+      } else {
+        this.toastr.error(ex.error.message);
+      }
+    };
   }
 
   delete() {
