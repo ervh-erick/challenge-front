@@ -12,6 +12,7 @@ import { UserService } from '../../../services/user/user.service';
 })
 export class UserCreateComponent {
 
+
   user: User = {
     firstName: '',
     lastName: '',
@@ -55,6 +56,10 @@ export class UserCreateComponent {
         this.toastr.error(ex.error.message);
       }
     })
+  }
+
+  back() {
+    this.router.navigate(['signin'])
   }
 
   validaCampos(): boolean {

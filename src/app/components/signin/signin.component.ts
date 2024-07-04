@@ -32,11 +32,13 @@ export class SigninComponent implements OnInit{
 
   executeLogin(){
     this.authService.authenticate(this.credential).subscribe(response=> {
+      console.log(response)
       this.authService.success(response);
       this.router.navigate(['me'])
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
+          console.log(ex)
           this.toastr.error(element.message);
         });
       } else {

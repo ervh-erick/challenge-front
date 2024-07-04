@@ -57,6 +57,9 @@ export class CarUpdateComponent implements OnInit{
     })
   }
 
+  back(){
+        this.router.navigate(['cars'])
+  }
 
   validaCampos(): boolean {
     return this.licensePlate.valid && this.year.valid

@@ -33,12 +33,12 @@ export class CarDeleteComponent implements OnInit{
     this.carService.findById(this.car.id).subscribe(response => {
     this.car = response;
     }), ex => {
-      if(ex.error.errors) {
-        ex.error.errors.forEach(element => {
+      if(ex.error?.errors) {
+        ex.error?.errors.forEach(element => {
           this.toastr.error(element.message);
         });
       } else {
-        this.toastr.error(ex.error.message);
+        this.toastr.error(ex.error?.message);
       }
     };;
   }
@@ -48,8 +48,8 @@ export class CarDeleteComponent implements OnInit{
       this.toastr.success('Car deleted successfully', 'Delete');
       this.router.navigate(['cars'])
     }, ex => {
-      if(ex.error.errors) {
-        ex.error.errors.forEach(element => {
+      if(ex.error?.errors) {
+        ex.error?.errors.forEach(element => {
           this.toastr.error(element.message);
         });
       } else {

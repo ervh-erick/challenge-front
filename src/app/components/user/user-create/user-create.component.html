@@ -80,6 +80,6 @@
       placeholder="Ex.. 99999999999">
     </mat-form-field>
     <button (click)="create()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Register</button>
-    <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancel</button>
+    <button (click)="back()" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancel</button>
   </form>
 </div>
